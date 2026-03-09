@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+      <style>
+    @keyframes scroll {
+      from {
+        transform: translateX(-50%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .slider-track {
+      animation: scroll 20s linear infinite;
+    }
+  </style>
+  
   </head>
   <body class="font-[Space_Grotesk] bg-black text-white">
     <header class="fixed top-0 left-0 w-full z-50">
@@ -53,7 +69,9 @@
 
 </section>
   <!-- Hero -->
-<section class="min-h-screen flex items-center justify-center bg-blue-600 text-white text-center">
+<section class="min-h-screen flex items-center justify-center bg-neutral-900 text-white text-center">
+
+
   <div>
     <h1 class="text-5xl font-bold mb-4">Mein Projekt</h1>
     <p class="text-xl mb-6">Eine kurze Beschreibung deiner Idee</p>
@@ -61,6 +79,36 @@
       Mehr erfahren
     </button>
   </div>
+
+  
+  <div class="overflow-hidden w-full">
+  
+  <div class="flex gap-6 slider-track w-max">
+
+    <!-- Bilder -->
+    <img src="https://picsum.photos/300/200?1" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?2" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?3" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?4" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?5" class="w-[180px] h-[120px] object-cover rounded-lg">
+
+    <!-- doppelt für Endlos Effekt -->
+    <img src="https://picsum.photos/300/200?1" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?2" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?3" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?4" class="w-[180px] h-[120px] object-cover rounded-lg">
+    <img src="https://picsum.photos/300/200?5" class="w-[180px] h-[120px] object-cover rounded-lg">
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
 </section>
 
 <!-- Problem -->
