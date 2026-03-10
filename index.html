@@ -72,7 +72,7 @@
 <!-- About -->
 <section id="about"  class="py-20 px-8 bg-neutral-900">
   <div class="max-w-5xl mx-auto">
-  <h2 class="text-3xl font-bold mb-6">About</h2>
+  <h2 class="text-center text-3xl font-bold mb-6">About</h2>
   <p class="text-xl mb-6">
   <p class="text-xl mb-6">
 Ich bin Webdesigner, Grafiker und Illustrator mit über 20 Jahren Erfahrung in der Gestaltung digitaler und visueller Projekte.
@@ -119,7 +119,7 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
  
 <section id="skills" class="py-20 px-8 bg-black">
 
-   <div class="max-w-5xl mx-auto"><h2 class="text-3xl font-bold mb-6">Leistungen / Skills</h2></div>
+   <div class="max-w-5xl mx-auto"><h2 class="text-center text-3xl font-bold mb-6">Leistungen / Skills</h2></div>
 
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
     
@@ -162,12 +162,12 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
   </div>
 </section>
 
-<section id="portfolio" class="py-20 bg-gray-950 text-white">
+<section id="portfolio" class="py-20 px-8 bg-gray-950 text-white"> 
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Titel -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold mb-4">Portfolio / Projekte</h2>
+      <h2 class="text-3xl font-bold mb-4">Portfolio / Projekte</h2>
       <p class="text-gray-400 max-w-2xl mx-auto">
         Eine Auswahl meiner Arbeiten aus Webdesign, Entwicklung und digitaler Kunst.
       </p>
@@ -329,35 +329,96 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
 
 
 <!-- CTA -->
-<section id="contact" class="py-16 bg-gray-900 text-white">
-  <div class="max-w-3xl mx-auto text-center px-6">
 
-    <p class="text-gray-300 mb-6">
-      Diese Website befindet sich aktuell noch im Aufbau.<br>
-      Bei Fragen oder Interesse können Sie mich gerne bereits über WhatsApp kontaktieren.
-    </p>
+<section id="contact" class="py-20 bg-gray-900 text-white">
+  <div class="max-w-3xl mx-auto px-6">
 
-    <a 
-      href="https://wa.me/4917655069778"
-      target="_blank"
-      class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-400 text-black font-semibold px-6 py-3 rounded-lg transition"
+    <!-- Titel -->
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Kontakt</h2>
+      <p class="text-gray-400">
+        Diese Website befindet sich noch im Aufbau. 
+        Sie können mich jedoch gerne bereits kontaktieren.
+      </p>
+    </div>
+
+    <!-- Formular -->
+    <form 
+      action="https://formspree.io/f/xaqpebbe" 
+      method="POST"
+      class="space-y-6 bg-gray-900 p-8 rounded-xl shadow-lg"
     >
-      
-      <!-- WhatsApp Icon -->
-      <svg xmlns="http://www.w3.org/2000/svg" 
-           class="w-6 h-6"
-           fill="currentColor"
-           viewBox="0 0 24 24">
-        <path d="M12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.15 1.6 5.96L0 24l6.2-1.6A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm6.93 16.47c-.29.82-1.7 1.57-2.33 1.67-.6.1-1.37.14-2.2-.13-.5-.16-1.14-.37-1.96-.73-3.45-1.49-5.7-4.97-5.87-5.2-.17-.23-1.4-1.86-1.4-3.55 0-1.69.88-2.52 1.2-2.87.31-.35.69-.44.92-.44h.66c.21 0 .49-.08.77.6.29.7.99 2.4 1.07 2.57.09.17.14.37.03.6-.12.23-.18.37-.35.57-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.34.9 1.48 1.94 2.4 1.34 1.19 2.47 1.56 2.82 1.73.35.17.55.14.75-.09.2-.23.86-1 .98-1.34.12-.34.23-.29.49-.17.26.12 1.66.78 1.94.92.29.14.49.21.57.33.09.12.09.7-.2 1.52z"/>
-      </svg>
 
-      Kontakt über WhatsApp
-    </a>
+      <!-- Name -->
+      <div>
+        <label class="block text-sm mb-2 text-gray-300">
+          Name
+        </label>
+        <input 
+          type="text" 
+          name="name"
+          required
+          placeholder="Ihr Name"
+          class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
+        >
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block text-sm mb-2 text-gray-300">
+          Email
+        </label>
+        <input 
+          type="email" 
+          name="email"
+          required
+          placeholder="Ihre Email"
+          class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
+        >
+      </div>
+
+      <!-- Nachricht -->
+      <div>
+        <label class="block text-sm mb-2 text-gray-300">
+          Nachricht
+        </label>
+        <textarea 
+          name="message"
+          required
+          placeholder="Ihre Nachricht..."
+          class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none h-32"
+        ></textarea>
+      </div>
+
+      <!-- Button -->
+      <button 
+        type="submit"
+        class="w-full bg-blue-600 hover:bg-blue-500 transition py-3 rounded-lg font-semibold"
+      >
+        Nachricht senden
+      </button>
+
+    </form>
 
   </div>
 </section>
 
+<a 
+  href="https://wa.me/4917655069778"
+  target="_blank"
+  class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-lg transition transform hover:scale-110 z-50"
+  aria-label="WhatsApp Kontakt"
+>
 
+  <!-- WhatsApp Icon -->
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       viewBox="0 0 24 24"
+       fill="currentColor"
+       class="w-7 h-7">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.15 1.6 5.96L0 24l6.2-1.6A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm6.93 16.47c-.29.82-1.7 1.57-2.33 1.67-.6.1-1.37.14-2.2-.13-.5-.16-1.14-.37-1.96-.73-3.45-1.49-5.7-4.97-5.87-5.2-.17-.23-1.4-1.86-1.4-3.55 0-1.69.88-2.52 1.2-2.87.31-.35.69-.44.92-.44h.66c.21 0 .49-.08.77.6.29.7.99 2.4 1.07 2.57.09.17.14.37.03.6-.12.23-.18.37-.35.57-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.34.9 1.48 1.94 2.4 1.34 1.19 2.47 1.56 2.82 1.73.35.17.55.14.75-.09.2-.23.86-1 .98-1.34.12-.34.23-.29.49-.17.26.12 1.66.78 1.94.92.29.14.49.21.57.33.09.12.09.7-.2 1.52z"/>
+  </svg>
+
+</a>
 
   </body>
 </html>
