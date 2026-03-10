@@ -23,15 +23,17 @@
 </style>
   </head>
   <body class="font-[Space_Grotesk] bg-black text-white" >
-    <header class="fixed top-0 left-0 w-full z-50">
+
+
+    <!--header class="fixed top-0 left-0 w-full z-50">
   <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
 
-    <!-- Logo -->
+   
     <div class="text-white font-bold text-xl tracking-widest">
       DIGITALART
     </div>
 
-    <!-- Navigation -->
+    
     <nav class="hidden md:flex space-x-8 text-white font-medium">
       <a href="#about" class="hover:text-gray-300 transition">About</a>
       <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
@@ -39,13 +41,81 @@
       <a href="#contact" class="hover:text-gray-300 transition">Kontakt</a>
     </nav>
 
-    <!-- Mobile Button -->
+   
     <button class="md:hidden text-white">
       ☰
     </button>
 
   </div>
+</header-->
+
+<header class="bg-black text-white fixed top-0 left-0 w-full z-50 shadow">
+  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
+
+    <!-- Logo -->
+        <div class="text-white font-bold text-xl tracking-widest">
+      DIGITALART
+    </div>
+
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex space-x-8 text-white font-medium">
+      <a href="#about" class="hover:text-gray-300 transition">About</a>
+      <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
+      <a href="#portfolio" class="hover:text-gray-300 transition">Portfolio</a>
+      <a href="#contact" class="hover:text-gray-300 transition">Kontakt</a>
+    </nav>
+
+    <!-- Hamburger Icon Mobile -->
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="relative w-8 h-8 flex flex-col justify-between items-center focus:outline-none">
+        <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
+        <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
+        <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- Mobile Menu -->
+  <nav id="mobile-menu" class="hidden md:hidden bg-gray-900 px-6 pb-4 space-y-2">
+    <a href="#about" class="block py-2 hover:text-blue-500 transition">About</a>
+    <a href="#skills" class="block py-2 hover:text-blue-500 transition">Skills</a>
+    <a href="#portfolio" class="block py-2 hover:text-blue-500 transition">Portfolio</a>
+    <a href="#contact" class="block py-2 hover:text-blue-500 transition">Kontakt</a>
+  </nav>
 </header>
+
+<!-- JavaScript für Mobile Menu + Hamburger Animation -->
+<script>
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const spans = menuButton.querySelectorAll('span');
+
+  menuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+
+    // Hamburger animieren
+    spans[0].classList.toggle('rotate-45');
+    spans[0].classList.toggle('translate-y-2');
+    
+    spans[1].classList.toggle('opacity-0');
+    
+    spans[2].classList.toggle('-rotate-45');
+    spans[2].classList.toggle('-translate-y-2');
+  });
+
+  // Schließen beim Klick auf Link
+  document.querySelectorAll('#mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      // Hamburger zurücksetzen
+      spans[0].classList.remove('rotate-45', 'translate-y-2');
+      spans[1].classList.remove('opacity-0');
+      spans[2].classList.remove('-rotate-45', '-translate-y-2');
+    });
+  });
+</script>
 
 <section class="min-h-screen flex items-center bg-black px-10">
 
@@ -73,14 +143,14 @@
 <section id="about"  class="py-20 px-8 bg-neutral-900">
   <div class="max-w-5xl mx-auto">
   <h2 class="text-center text-3xl font-bold mb-6">About</h2>
-  <p class="text-xl mb-6">
-  <p class="text-xl mb-6">
+  
+  <p class="text-xl mb-6 text-gray-400">
 Ich bin Webdesigner, Grafiker und Illustrator mit über 20 Jahren Erfahrung in der Gestaltung digitaler und visueller Projekte.
 </p>
-  <p class="text-xl mb-6">
+  <p class="text-xl mb-6 text-gray-400">
 Mein Schwerpunkt liegt auf Webdesign, visueller Kommunikation und Illustration – von Websites und Apps bis zu Grafikdesign und Content für digitale Plattformen und Social Media.
   </p>
-<p class="text-xl mb-6">
+<p class="text-xl mb-6 text-gray-400">
 Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und setze Designs mit HTML und CSS in responsive Layouts um.   
 </p>
 
@@ -168,7 +238,7 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
     <!-- Titel -->
     <div class="text-center mb-16">
       <h2 class="text-3xl font-bold mb-4">Portfolio / Projekte</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto">
+      <p class="text-gray-400 max-w-2xl mx-auto text-xl" >
         Eine Auswahl meiner Arbeiten aus Webdesign, Entwicklung und digitaler Kunst.
       </p>
     </div>
@@ -176,51 +246,9 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
     <!-- Grid -->
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
 
+
+
       <!-- Projekt 1 -->
-      <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-
-        <!-- Bild -->
-        <div class="overflow-hidden">
-          <img 
-            src="/img/800_digitalart.jpg"
-            class="w-full h-52 object-cover group-hover:scale-110 transition duration-500"
-          >
-        </div>
-
-        <!-- Content -->
-        <div class="p-6">
-
-          <h3 class="text-xl font-semibold mb-2">
-            Digital Art City
-          </h3>
-
-          <p class="text-gray-400 text-sm mb-4">
-            Kreative Website über digitale Kunst und moderne Webtechnologien.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">AI Assisted</span>            
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">HTML</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Tailwind CSS</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">JavaScript</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Visual Studio Code</span>
-          </div>
-
-          <!-- Buttons -->
-          <div class="flex gap-3">
-
-            <a href="https://github.com/munich99/homepage2026" target="_blank"
-               class="text-sm border border-gray-700 hover:border-white px-4 py-2 rounded">
-               GitHub
-            </a>
-          </div>
-
-        </div>
-      </div>
-
-
-      <!-- Projekt 2 -->
       <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
 
         <div class="overflow-hidden">
@@ -286,6 +314,50 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
   </div>
 </div> -->
 
+      <!-- Projekt 2 -->
+      <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition ">
+        
+
+        <!-- Bild -->
+        <div class="overflow-hidden border border-gray-800 rounded-t-xl">
+          <img 
+            src="/img/800_digitalart.jpg"
+            class="w-full h-52 object-cover group-hover:scale-110 transition duration-500 "
+          >
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+
+          <h3 class="text-xl font-semibold mb-2">
+            Digital Art City
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-4">
+            Kreative Website über digitale Kunst und moderne Webtechnologien.
+          </p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="text-xs bg-gray-800 px-2 py-1 rounded">AI Assisted</span>            
+            <span class="text-xs bg-gray-800 px-2 py-1 rounded">HTML</span>
+            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Tailwind CSS</span>
+            <span class="text-xs bg-gray-800 px-2 py-1 rounded">JavaScript</span>
+            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Visual Studio Code</span>
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex gap-3">
+
+            <a href="https://github.com/munich99/homepage2026" target="_blank"
+               class="text-sm border border-gray-700 hover:border-white px-4 py-2 rounded">
+               GitHub
+            </a>
+          </div>
+
+        </div>
+      </div>
+
 
       <!-- Projekt 3 -->
       <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
@@ -339,7 +411,7 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
     <!-- Titel -->
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold mb-4">Kontakt</h2>
-      <p class="text-gray-400">
+      <p class="text-gray-400 text-xl">
         Diese Website befindet sich noch im Aufbau. 
         Sie können mich jedoch gerne bereits kontaktieren.
       </p>
