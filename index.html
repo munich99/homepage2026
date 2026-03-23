@@ -1,292 +1,538 @@
 <!doctype html>
 <html lang="de" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-@keyframes slider {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-33.333%);
-  }
-}
 
-.slider-track {
-  display: flex;
-  width: max-content;
-  animation: slider 30s linear infinite;
-}
-</style>
-  </head>
-  <body class="font-[Space_Grotesk] bg-black text-white" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Digital Art Portfolio von Sawicz. Kreative digitale Illustrationen, Animationen und Webdesign.">
+  <meta property="og:title" content="Digital Art Portfolio | Sawicz">
+  <meta property="og:description" content="Kreative digitale Illustrationen, Animationen und Webdesign.">
+  <meta property="og:image" content="preview.jpg">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    @keyframes slider {
+      from {
+        transform: translateX(0);
+      }
 
+      to {
+        transform: translateX(-50%);
+      }
+    }
 
-    <!--header class="fixed top-0 left-0 w-full z-50">
-  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+    .slider-track {
+      display: flex;
+      width: max-content;
+      animation: slider 35s linear infinite;
+      cursor: grab;
+    }
 
-   
-    <div class="text-white font-bold text-xl tracking-widest">
-      DIGITALART
-    </div>
+    .slider-track:hover {
+      animation-play-state: paused;
+    }
+  </style>
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
 
-    
-    <nav class="hidden md:flex space-x-8 text-white font-medium">
-      <a href="#about" class="hover:text-gray-300 transition">About</a>
-      <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
-      <a href="#portfolio" class="hover:text-gray-300 transition">Portfolio</a>
-      <a href="#contact" class="hover:text-gray-300 transition">Kontakt</a>
-    </nav>
+      img.src = src;
+      lightbox.classList.remove('hidden');
+    }
 
-   
-    <button class="md:hidden text-white">
-      ☰
-    </button>
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.add('hidden');
+    }
+  </script>
 
-  </div>
-</header-->
+</head>
 
-<header class="bg-black text-white fixed top-0 left-0 w-full z-50 shadow">
-  <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
-
-    <!-- Logo -->
-        <div class="text-white font-bold text-xl tracking-widest">
-      DIGITALART
-    </div>
-
-
-    <!-- Desktop Menu -->
-    <nav class="hidden md:flex space-x-8 text-white font-medium">
-      <a href="#about" class="hover:text-gray-300 transition">About</a>
-      <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
-      <a href="#portfolio" class="hover:text-gray-300 transition">Portfolio</a>
-      <a href="#contact" class="hover:text-gray-300 transition">Kontakt</a>
-    </nav>
-
-    <!-- Hamburger Icon Mobile -->
-    <div class="md:hidden">
-      <button id="mobile-menu-button" class="relative w-8 h-8 flex flex-col justify-between items-center focus:outline-none">
-        <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
-        <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
-        <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
-      </button>
-    </div>
-
-  </div>
-
-  <!-- Mobile Menu -->
-  <nav id="mobile-menu" class="hidden md:hidden bg-gray-900 px-6 pb-4 space-y-2">
-    <a href="#about" class="block py-2 hover:text-blue-500 transition">About</a>
-    <a href="#skills" class="block py-2 hover:text-blue-500 transition">Skills</a>
-    <a href="#portfolio" class="block py-2 hover:text-blue-500 transition">Portfolio</a>
-    <a href="#contact" class="block py-2 hover:text-blue-500 transition">Kontakt</a>
-  </nav>
-</header>
-
-<!-- JavaScript für Mobile Menu + Hamburger Animation -->
-<script>
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const spans = menuButton.querySelectorAll('span');
-
-  menuButton.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-
-    // Hamburger animieren
-    spans[0].classList.toggle('rotate-45');
-    spans[0].classList.toggle('translate-y-2');
-    
-    spans[1].classList.toggle('opacity-0');
-    
-    spans[2].classList.toggle('-rotate-45');
-    spans[2].classList.toggle('-translate-y-2');
-  });
-
-  // Schließen beim Klick auf Link
-  document.querySelectorAll('#mobile-menu a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      // Hamburger zurücksetzen
-      spans[0].classList.remove('rotate-45', 'translate-y-2');
-      spans[1].classList.remove('opacity-0');
-      spans[2].classList.remove('-rotate-45', '-translate-y-2');
-    });
-  });
-</script>
-
-<section class="min-h-screen flex items-center bg-black px-10">
-
-<div class="max-w-5xl">
-    
-    <h1 class="text-white font-bold leading-tight tracking-tight">
-      <span class="block text-5xl md:text-7xl lg:text-8xl">
-        Digital &amp; Print
-      </span>
-
-      <span class="block text-5xl md:text-7xl lg:text-8xl">
-        Design
-      </span>
-
-      <span class="block text-xl md:text-2xl mt-6 font-medium text-gray-300">
-        Sebastian Sawicz
-      </span>
-    </h1>
-
-  </div>
-</section>
-
-
-<!-- About -->
-<section id="about"  class="py-20 px-8 bg-neutral-900">
-  <div class="max-w-5xl mx-auto">
-  <h2 class="text-center text-3xl font-bold mb-6">About</h2>
-  
-  <p class="text-xl mb-6 text-gray-400">
-Ich bin Webdesigner, Grafiker und Illustrator mit über 20 Jahren Erfahrung in der Gestaltung digitaler und visueller Projekte.
-</p>
-  <p class="text-xl mb-6 text-gray-400">
-Mein Schwerpunkt liegt auf Webdesign, visueller Kommunikation und Illustration – von Websites und Apps bis zu Grafikdesign und Content für digitale Plattformen und Social Media.
-  </p>
-<p class="text-xl mb-6 text-gray-400">
-Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und setze Designs mit HTML und CSS in responsive Layouts um.   
-</p>
-
- <div class="overflow-hidden w-full">
-
-  <div class="slider-track gap-6">
-
-    <!-- SET 1 -->
-    <img src="/img/peka_digital_verlag.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/deutsche_biographie.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/peka_verlag.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/christian_raufer.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/regierung_von_oberbayern.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-
-    <!-- SET 2 -->
-    <img src="/img/peka_digital_verlag.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/deutsche_biographie.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/peka_verlag.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/christian_raufer.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/regierung_von_oberbayern.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-
-    <!-- SET 3 -->
-    <img src="/img/peka_digital_verlag.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/deutsche_biographie.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/peka_verlag.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/christian_raufer.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-    <img src="/img/regierung_von_oberbayern.jpg" class="w-[206px] h-[140px] object-cover rounded-lg shrink-0">
-
-  </div>
-
-</div>
-</div>
-</section>
-
-<!-- skills -->
- 
-<section id="skills" class="py-20 px-8 bg-black">
-
-   <div class="max-w-5xl mx-auto"><h2 class="text-center text-3xl font-bold mb-6">Leistungen / Skills</h2></div>
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-    
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-bold text-xl mb-3 text-gray-600">Webdesign</h3>
-      <p class="text-gray-600 mb-2">Konzeption, Gestaltung und Entwicklung moderner Websites und Benutzeroberflächen.</p>
-<ul class="list-disc pl-5 space-y-1 text-gray-600">
-  <li>UI / UX Design</li>
-  <li>Responsive Webdesign</li>
-  <li>HTML & CSS Umsetzung</li>
-  <li>CMS / Websysteme</li>
-  
-</ul>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-bold text-xl mb-3 text-gray-600">Grafikdesign</h3>
-      <p class="text-gray-600 mb-2">Visuelle Kommunikation für digitale und gedruckte Medien.</p>
-<ul class="list-disc pl-5 space-y-1 text-gray-600">
-  <li>Corporate Design</li>
-  <li>Layout & Print</li>
-  <li>Infografiken</li>
-  <li>Social-Media-Grafiken</li>
-  
-</ul>
-    </div>
-
-    <div class="bg-white p-6 rounded-xl shadow">
-      <h3 class="font-bold text-xl mb-3 text-gray-600">Illustration</h3>
-      <p class="text-gray-600 mb-2">Individuelle Illustrationen für digitale Medien, Print und redaktionelle Inhalte.</p>
-<ul class="list-disc pl-5 space-y-1 text-gray-600">
-  <li>Editorial Illustration</li>
-  <li>visuelle Konzepte</li>
-  <li>Icons & Grafiken</li>
-  <li>Storytelling</li>
-  
-</ul>
-    </div>
-
-  </div>
-</section>
-
-<section id="portfolio" class="py-20 px-8 bg-gray-950 text-white"> 
-  <div class="max-w-7xl mx-auto px-6">
-
-    <!-- Titel -->
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold mb-4">Portfolio / Projekte</h2>
-      <p class="text-gray-400 max-w-2xl mx-auto text-xl" >
-        Eine Auswahl meiner Arbeiten aus Webdesign, Entwicklung und digitaler Kunst.
-      </p>
-    </div>
-
-    <!-- Grid -->
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+<body class="font-[Space_Grotesk] bg-black text-white">
 
 
 
-      <!-- Projekt 1 -->
-      <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+  <header class="bg-black text-white fixed top-0 left-0 w-full z-50 shadow">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
 
-        <div class="overflow-hidden">
-          <img 
-            src="/img/800_peka-verlag.jpg"
-            class="w-full h-52 object-cover group-hover:scale-110 transition duration-500"
-          >
-        </div>
-
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">
-            peka Verlags-GmbH
-          </h3>
-
-          <p class="text-gray-400 text-sm mb-4">
-            Webprojekt für den peka Verlag – Anbieter von Trauerdrucksachen und Erinnerungsprodukten.
-          </p>
-
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Onlineshop</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Wordpress</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">WooCommerce</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">UX-Design</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">HTML</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Bootstrap CSS</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">php</span>
-          </div>
-
-          <div class="flex gap-3">
-            <a href="https://www.peka-verlag.de" target="_blank"
-               class="text-sm bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded">
-               Live Demo
-            </a>
-          </div>
-        </div>
+      <!-- Logo -->
+      <div class="text-white font-bold text-xl tracking-widest">
+        DIGITALART
       </div>
 
-      <!-- Projekt 2.5 
+
+      <!-- Desktop Menu -->
+      <nav class="hidden md:flex space-x-8 text-white font-medium">
+        <a href="#about" class="hover:text-gray-300 transition">About</a>
+        <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
+        <a href="#portfolio" class="hover:text-gray-300 transition">Portfolio</a>
+        <a href="#contact" class="hover:text-gray-300 transition">Kontakt</a>
+      </nav>
+
+      <!-- Hamburger Icon Mobile -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button"
+          class="relative w-8 h-8 flex flex-col justify-between items-center focus:outline-none">
+          <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
+          <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
+          <span class="block h-0.5 w-full bg-white rounded transform transition duration-300 origin-center"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Menu -->
+    <nav id="mobile-menu" class="hidden md:hidden bg-gray-900 px-6 pb-4 space-y-2">
+      <a href="#about" class="block py-2 hover:text-blue-500 transition">About</a>
+      <a href="#skills" class="block py-2 hover:text-blue-500 transition">Skills</a>
+      <a href="#portfolio" class="block py-2 hover:text-blue-500 transition">Portfolio</a>
+      <a href="#contact" class="block py-2 hover:text-blue-500 transition">Kontakt</a>
+
+    </nav>
+  </header>
+
+  <!-- JavaScript für Mobile Menu + Hamburger Animation -->
+  <script>
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const spans = menuButton.querySelectorAll('span');
+
+    menuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+
+      // Hamburger animieren
+      spans[0].classList.toggle('rotate-45');
+      spans[0].classList.toggle('translate-y-2');
+
+      spans[1].classList.toggle('opacity-0');
+
+      spans[2].classList.toggle('-rotate-45');
+      spans[2].classList.toggle('-translate-y-2');
+    });
+
+    // Schließen beim Klick auf Link
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        // Hamburger zurücksetzen
+        spans[0].classList.remove('rotate-45', 'translate-y-2');
+        spans[1].classList.remove('opacity-0');
+        spans[2].classList.remove('-rotate-45', '-translate-y-2');
+      });
+    });
+  </script>
+
+  <section class="min-h-screen flex items-center bg-black px-10">
+
+    <div class="max-w-5xl">
+
+      <h1 class="text-white font-bold leading-tight tracking-tight">
+        <span class="block text-5xl md:text-7xl lg:text-8xl">
+          Digital &amp; Print
+        </span>
+
+        <span class="block text-5xl md:text-7xl lg:text-8xl">
+          Design
+        </span>
+
+        <span class="block text-xl md:text-2xl mt-6 font-medium text-gray-300">
+          Sebastian Sawicz
+        </span>
+      </h1>
+
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section id="about" class="py-20 px-8 bg-neutral-900">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-3xl font-bold mb-6">About</h2>
+
+      <p class="text-xl mb-6 text-gray-300">
+        Ich bin Webdesigner, Grafiker und Illustrator mit über 20 Jahren Erfahrung in der Gestaltung digitaler und
+        visueller Projekte.
+      </p>
+      <p class="text-xl mb-6 text-gray-300">
+        Mein Schwerpunkt liegt auf Webdesign, visueller Kommunikation und Illustration – von Websites und Apps bis zu
+        Grafikdesign und Content für digitale Plattformen und Social Media.
+      </p>
+      <p class="text-xl mb-6 text-gray-300">
+        Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und setze Designs mit HTML und CSS in
+        responsive Layouts um.
+      </p>
+
+      <div class="overflow-hidden w-full">
+
+        <div class="slider-track gap-6">
+
+          <!-- SET 1 -->
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+
+            <a href="https://www.peka-digital.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/peka_digital_verlag.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a>
+            <span class="text-xs mt-3 text-gray-400 group-hover:text-white transition">
+              Peka Digital Verlag
+            </span>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://peka-digital.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/peka_verlag.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a>
+            <span class="text-xs mt-2 text-gray-400">peka Verlags-GmbH</span>
+          </div>
+
+
+          <!-- ITEM DESIGN-->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/design_make-it-simple.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/design_make-it-simple_klein.png" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                mein Credo - Instagram Post
+              </span>
+            </div>
+          </div>
+          <!-- ITEM -->
+
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://www.deutsche-biographie.de" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/deutsche_biographie.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300"> </a>
+            <span class="text-xs mt-2 text-gray-400">Deutsche Biographie</span>
+          </div>
+          <!-- ITEM DESIGN-->
+
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/logo_veggi-personal.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/logo_veggi-personal_klein.png" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                Logo Design
+              </span>
+            </div>
+          </div>
+
+
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://www.rauferconsulting.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/christian_raufer.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a> <span class="text-xs mt-2 text-gray-400">Digital Transformation Consultant</span>
+          </div>
+
+          <!-- ITEM DESIGN-->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/03-03-frau am strand_130cm_100cm.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/03-03-frau am strand_klein.jpg" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                STROKE 2025 - Vector Art
+              </span>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://www.regierung.oberbayern.bayern.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/regierung_von_oberbayern.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a> <span class="text-xs mt-2 text-gray-400">Regierung von Oberbayern</span>
+          </div>
+
+          <!-- ITEM DESIGN-->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/weisswurst.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/weisswurst_kl.jpg" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                Food Design - Instagram Post
+              </span>
+            </div>
+          </div>
+
+          <!-- SET 2 -->
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+
+            <a href="https://www.peka-digital.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/peka_digital_verlag.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a>
+            <span class="text-xs mt-3 text-gray-400 group-hover:text-white transition">
+              Peka Digital Verlag
+            </span>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://peka-digital.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/peka_verlag.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a>
+            <span class="text-xs mt-2 text-gray-400">peka Verlags-GmbH</span>
+          </div>
+
+
+          <!-- ITEM DESIGN-->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/design_make-it-simple.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/design_make-it-simple_klein.png" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                mein Credo - Instagram Post
+              </span>
+            </div>
+          </div>
+          <!-- ITEM -->
+
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://www.deutsche-biographie.de" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/deutsche_biographie.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300"> </a>
+            <span class="text-xs mt-2 text-gray-400">Deutsche Biographie</span>
+          </div>
+          <!-- ITEM DESIGN-->
+
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/logo_veggi-personal.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/logo_veggi-personal_klein.png" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                Logo Design
+              </span>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://www.rauferconsulting.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/christian_raufer.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a> <span class="text-xs mt-2 text-gray-400">Digital Transformation Consultant</span>
+          </div>
+
+          <!-- ITEM DESIGN-->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/03-03-frau am strand_130cm_100cm.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/03-03-frau am strand_klein.jpg" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                STROKE 2025 - Vector Art
+              </span>
+            </div>
+          </div>
+
+          <!-- ITEM -->
+          <div class="flex flex-col items-center shrink-0">
+            <a href="https://www.regierung.oberbayern.bayern.de/" target="_blank"
+              class="group w-full h-[140px] overflow-hidden rounded-lg">
+
+              <img src="/img/regierung_von_oberbayern.jpg" class="w-full h-full object-cover 
+                opacity-80 group-hover:opacity-100 
+                group-hover:scale-105 
+                transition duration-300">
+            </a> <span class="text-xs mt-2 text-gray-400">Regierung von Oberbayern</span>
+          </div>
+
+          <!-- ITEM DESIGN-->
+          <div class="flex flex-col items-center shrink-0 w-[206px]">
+            <div class="flex flex-col items-center shrink-0 w-[206px]">
+              <div onclick="openLightbox('/img/weisswurst.jpg')" class="group w-full h-[140px] bg-gray-800 rounded-lg 
+                          flex items-center justify-center overflow-hidden cursor-pointer">
+                <img src="/img/weisswurst_kl.jpg" class="max-h-full max-w-full object-contain
+                            transition duration-300 
+                            group-hover:scale-105">
+              </div>
+              <span class="text-xs mt-3 text-gray-400 text-center">
+                Food Design - Instagram Post
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- skills -->
+
+  <section id="skills" class="py-20 px-8 bg-black">
+
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-center text-3xl font-bold mb-6">Leistungen / Skills</h2>
+    </div>
+
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-bold text-xl mb-3 text-gray-600">Webdesign</h3>
+        <p class="text-gray-600 mb-2">Konzeption, Gestaltung und Entwicklung moderner Websites und Benutzeroberflächen.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+          <li>UI / UX Design</li>
+          <li>Responsive Webdesign</li>
+          <li>HTML & CSS Umsetzung</li>
+          <li>CMS / Websysteme</li>
+
+        </ul>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-bold text-xl mb-3 text-gray-600">Grafikdesign</h3>
+        <p class="text-gray-600 mb-2">Visuelle Kommunikation für digitale und gedruckte Medien.</p>
+        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+          <li>Corporate Design</li>
+          <li>Layout & Print</li>
+          <li>Infografiken</li>
+          <li>Social-Media-Grafiken</li>
+
+        </ul>
+      </div>
+
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h3 class="font-bold text-xl mb-3 text-gray-600">Illustration</h3>
+        <p class="text-gray-600 mb-2">Individuelle Illustrationen für digitale Medien, Print und redaktionelle Inhalte.
+        </p>
+        <ul class="list-disc pl-5 space-y-1 text-gray-600">
+          <li>Editorial Illustration</li>
+          <li>visuelle Konzepte</li>
+          <li>Icons & Grafiken</li>
+          <li>Storytelling</li>
+
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="portfolio" class="py-20 px-8 bg-gray-950 text-white">
+    <div class="max-w-7xl mx-auto px-6">
+
+      <!-- Titel -->
+      <div class="text-center mb-16">
+        <h2 class="text-3xl font-bold mb-4">Portfolio / Projekte</h2>
+        <p class="text-gray-300 max-w-2xl mx-auto text-xl">
+          Eine Auswahl meiner Arbeiten aus Webdesign, Entwicklung und digitaler Kunst.
+        </p>
+      </div>
+
+      <!-- Grid -->
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
+
+
+
+        <!-- Projekt 1 -->
+        <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+
+          <div class="overflow-hidden">
+            <img src="/img/800_peka-verlag.jpg"
+              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">
+              peka Verlags-GmbH
+            </h3>
+
+            <p class="text-gray-400 text-sm mb-4">
+              Webprojekt für den peka Verlag – Anbieter von Trauerdrucksachen und Erinnerungsprodukten.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Onlineshop</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Wordpress</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">WooCommerce</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">UX-Design</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">HTML</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Bootstrap CSS</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">php</span>
+            </div>
+
+            <div class="flex gap-3">
+              <a href="https://www.peka-verlag.de" target="_blank"
+                class="text-sm bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded">
+                Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projekt 2.5 
 <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
   <div class="overflow-hidden">
     <img 
@@ -314,207 +560,193 @@ Neben der Konzeption und Gestaltung entwickle ich Websites auch technisch und se
   </div>
 </div> -->
 
-      <!-- Projekt 2 -->
-      <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition ">
-        
+        <!-- Projekt 2 -->
+        <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition ">
 
-        <!-- Bild -->
-        <div class="overflow-hidden border border-gray-800 rounded-t-xl">
-          <img 
-            src="/img/800_digitalart.jpg"
-            class="w-full h-52 object-cover group-hover:scale-110 transition duration-500 "
-          >
-        </div>
 
-        <!-- Content -->
-        <div class="p-6">
-
-          <h3 class="text-xl font-semibold mb-2">
-            Digital Art City
-          </h3>
-
-          <p class="text-gray-400 text-sm mb-4">
-            Kreative Website über digitale Kunst und moderne Webtechnologien.
-          </p>
-
-          <!-- Tags -->
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">AI Assisted</span>            
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">HTML</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Tailwind CSS</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">JavaScript</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Visual Studio Code</span>
+          <!-- Bild -->
+          <div class="overflow-hidden border border-gray-800 rounded-t-xl">
+            <img src="/img/800_digitalart.jpg"
+              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500 ">
           </div>
 
-          <!-- Buttons -->
-          <div class="flex gap-3">
+          <!-- Content -->
+          <div class="p-6">
 
-            <a href="https://github.com/munich99/homepage2026" target="_blank"
-               class="text-sm border border-gray-700 hover:border-white px-4 py-2 rounded">
-               GitHub
-            </a>
+            <h3 class="text-xl font-semibold mb-2">
+              Digital Art City
+            </h3>
+
+            <p class="text-gray-400 text-sm mb-4">
+              Kreative Website über digitale Kunst und moderne Webtechnologien.
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">AI Assisted</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">HTML</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Tailwind CSS</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">JavaScript</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Visual Studio Code</span>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex gap-3">
+
+              <a href="https://github.com/munich99/homepage2026" target="_blank"
+                class="text-sm border border-gray-700 hover:border-white px-4 py-2 rounded">
+                GitHub
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+
+        <!-- Projekt 3 -->
+        <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+
+          <div class="overflow-hidden">
+            <img src="/img/800_stroke_art.jpg"
+              class="w-full h-52 object-cover group-hover:scale-110 transition duration-500">
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">
+              STROKE Art Fair 2025
+            </h3>
+
+            <p class="text-gray-400 text-sm mb-4">
+              Ausstellung digitaler Vektorgrafiken auf Leinwand – STROKE Art Fair, April 2025.
+            </p>
+
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Digital Art</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Vector Graphics</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Exhibition</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Minimal Design</span>
+              <span class="text-xs bg-gray-800 px-2 py-1 rounded">Scrum Master</span>
+
+            </div>
+
+            <div class="flex gap-3">
+              <a href="https://photos.app.goo.gl/Fxt4GHaukAwTxLMJ8"
+                class="text-sm bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded" target="_blank">
+                Details
+              </a>
+            </div>
           </div>
 
         </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- CTA -->
+
+  <section id="contact" class="py-20 bg-gray-900 text-white">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <!-- Titel -->
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-4">Kontakt</h2>
+        <p class="text-gray-400 text-xl">
+          Diese Website befindet sich noch im Aufbau.
+          Sie können mich jedoch gerne bereits kontaktieren.
+        </p>
       </div>
 
+      <!-- Formular -->
+      <form action="https://formspree.io/f/xaqpebbe" method="POST"
+        class="space-y-6 bg-gray-900 p-8 rounded-xl shadow-lg">
 
-      <!-- Projekt 3 -->
-      <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-
-        <div class="overflow-hidden">
-          <img 
-            src="/img/800_stroke_art.jpg"
-            class="w-full h-52 object-cover group-hover:scale-110 transition duration-500"
-          >
+        <!-- Name -->
+        <div>
+          <label class="block text-sm mb-2 text-gray-300">
+            Name
+          </label>
+          <input type="text" name="name" required placeholder="Ihr Name"
+            class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none">
         </div>
 
-        <div class="p-6">
-          <h3 class="text-xl font-semibold mb-2">
-            STROKE Art Fair 2025
-          </h3>
+        <!-- Email -->
+        <div>
+          <label class="block text-sm mb-2 text-gray-300">
+            Email
+          </label>
+          <input type="email" name="email" required placeholder="Ihre Email"
+            class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none">
+        </div>
 
-          <p class="text-gray-400 text-sm mb-4">
-            Ausstellung digitaler Vektorgrafiken auf Leinwand – STROKE Art Fair, April 2025.
-          </p>
+        <!-- Nachricht -->
+        <div>
+          <label class="block text-sm mb-2 text-gray-300">
+            Nachricht
+          </label>
+          <textarea name="message" required placeholder="Ihre Nachricht..."
+            class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none h-32"></textarea>
+        </div>
 
-          <div class="flex flex-wrap gap-2 mb-5">
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Digital Art</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Vector Graphics</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Exhibition</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Minimal Design</span>
-            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Scrum Master</span>
+        <!-- Button -->
+        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-500 transition py-3 rounded-lg font-semibold">
+          Nachricht senden
+        </button>
 
-          </div>
+      </form>
 
-          <div class="flex gap-3">
-            <a href="https://photos.app.goo.gl/Fxt4GHaukAwTxLMJ8" class="text-sm bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded" target="_blank">
-              Details
-            </a>
-          </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-950 border-t border-gray-800 text-gray-500 mt-20">
+    <div class="max-w-7xl mx-auto px-6 py-8">
+
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+
+        <!-- Copyright -->
+        <div>
+          © 2025 DigitalArt.City
+        </div>
+
+        <!-- Navigation -->
+        <div class="flex gap-6">
+          <a href="#skills" class="hover:text-white transition">Skills</a>
+          <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
+          <a href="#contact" class="hover:text-white transition">Kontakt</a>
+          <a href="/impressum.html" class="hover:text-white transition">Impressum</a>
         </div>
 
       </div>
 
     </div>
+  </footer><a href="https://wa.me/4917655069778" target="_blank"
+    class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-lg transition transform hover:scale-110 z-50"
+    aria-label="WhatsApp Kontakt">
+
+    <!-- WhatsApp Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7">
+      <path
+        d="M12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.15 1.6 5.96L0 24l6.2-1.6A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm6.93 16.47c-.29.82-1.7 1.57-2.33 1.67-.6.1-1.37.14-2.2-.13-.5-.16-1.14-.37-1.96-.73-3.45-1.49-5.7-4.97-5.87-5.2-.17-.23-1.4-1.86-1.4-3.55 0-1.69.88-2.52 1.2-2.87.31-.35.69-.44.92-.44h.66c.21 0 .49-.08.77.6.29.7.99 2.4 1.07 2.57.09.17.14.37.03.6-.12.23-.18.37-.35.57-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.34.9 1.48 1.94 2.4 1.34 1.19 2.47 1.56 2.82 1.73.35.17.55.14.75-.09.2-.23.86-1 .98-1.34.12-.34.23-.29.49-.17.26.12 1.66.78 1.94.92.29.14.49.21.57.33.09.12.09.7-.2 1.52z" />
+    </svg>
+
+  </a>
+
+  <div id="lightbox" class="fixed inset-0 bg-black/80 flex items-center justify-center z-50 hidden"
+    onclick="closeLightbox()">
+
+    <!-- Close Button -->
+    <button onclick="closeLightbox(); event.stopPropagation();"
+      class="absolute top-6 right-6 text-white text-3xl hover:opacity-70 transition">
+      ✕
+    </button>
+
+    <!-- Bild -->
+    <img id="lightbox-img" onclick="event.stopPropagation()" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
   </div>
-</section>
 
+</body>
 
-
-
-<!-- CTA -->
-
-<section id="contact" class="py-20 bg-gray-900 text-white">
-  <div class="max-w-3xl mx-auto px-6">
-
-    <!-- Titel -->
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold mb-4">Kontakt</h2>
-      <p class="text-gray-400 text-xl">
-        Diese Website befindet sich noch im Aufbau. 
-        Sie können mich jedoch gerne bereits kontaktieren.
-      </p>
-    </div>
-
-    <!-- Formular -->
-    <form 
-      action="https://formspree.io/f/xaqpebbe" 
-      method="POST"
-      class="space-y-6 bg-gray-900 p-8 rounded-xl shadow-lg"
-    >
-
-      <!-- Name -->
-      <div>
-        <label class="block text-sm mb-2 text-gray-300">
-          Name
-        </label>
-        <input 
-          type="text" 
-          name="name"
-          required
-          placeholder="Ihr Name"
-          class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
-        >
-      </div>
-
-      <!-- Email -->
-      <div>
-        <label class="block text-sm mb-2 text-gray-300">
-          Email
-        </label>
-        <input 
-          type="email" 
-          name="email"
-          required
-          placeholder="Ihre Email"
-          class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none"
-        >
-      </div>
-
-      <!-- Nachricht -->
-      <div>
-        <label class="block text-sm mb-2 text-gray-300">
-          Nachricht
-        </label>
-        <textarea 
-          name="message"
-          required
-          placeholder="Ihre Nachricht..."
-          class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:border-blue-500 outline-none h-32"
-        ></textarea>
-      </div>
-
-      <!-- Button -->
-      <button 
-        type="submit"
-        class="w-full bg-blue-600 hover:bg-blue-500 transition py-3 rounded-lg font-semibold"
-      >
-        Nachricht senden
-      </button>
-
-    </form>
-
-  </div>
-</section>
-
-<footer class="bg-gray-950 border-t border-gray-800 text-gray-500 mt-20">
-  <div class="max-w-7xl mx-auto px-6 py-8">
-
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-
-      <!-- Copyright -->
-      <div>
-        © 2025 DigitalArt.City
-      </div>
-
-      <!-- Navigation -->
-      <div class="flex gap-6">
-        <a href="#skills" class="hover:text-white transition">Skills</a>
-        <a href="#portfolio" class="hover:text-white transition">Portfolio</a>
-        <a href="#contact" class="hover:text-white transition">Kontakt</a>
-        <a href="/impressum.html" class="hover:text-white transition">Impressum</a>
-      </div>
-
-    </div>
-
-  </div>
-</footer><a 
-  href="https://wa.me/4917655069778"
-  target="_blank"
-  class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-400 text-white p-4 rounded-full shadow-lg transition transform hover:scale-110 z-50"
-  aria-label="WhatsApp Kontakt"
->
-
-  <!-- WhatsApp Icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" 
-       viewBox="0 0 24 24"
-       fill="currentColor"
-       class="w-7 h-7">
-    <path d="M12 0C5.37 0 0 5.37 0 12c0 2.1.55 4.15 1.6 5.96L0 24l6.2-1.6A11.96 11.96 0 0012 24c6.63 0 12-5.37 12-12S18.63 0 12 0zm6.93 16.47c-.29.82-1.7 1.57-2.33 1.67-.6.1-1.37.14-2.2-.13-.5-.16-1.14-.37-1.96-.73-3.45-1.49-5.7-4.97-5.87-5.2-.17-.23-1.4-1.86-1.4-3.55 0-1.69.88-2.52 1.2-2.87.31-.35.69-.44.92-.44h.66c.21 0 .49-.08.77.6.29.7.99 2.4 1.07 2.57.09.17.14.37.03.6-.12.23-.18.37-.35.57-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.34.9 1.48 1.94 2.4 1.34 1.19 2.47 1.56 2.82 1.73.35.17.55.14.75-.09.2-.23.86-1 .98-1.34.12-.34.23-.29.49-.17.26.12 1.66.78 1.94.92.29.14.49.21.57.33.09.12.09.7-.2 1.52z"/>
-  </svg>
-
-</a>
-
-  </body>
 </html>
