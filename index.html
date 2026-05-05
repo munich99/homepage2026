@@ -54,21 +54,38 @@
 
 
 
-  <header class="bg-black text-white fixed top-0 left-0 w-full z-50 shadow">
+  <header id="main-header" class="bg-black text-white fixed top-0 left-0 w-full z-50 shadow transition-colors duration-500">
+
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center h-16">
 
-      <!-- Logo -->
-      <div class="text-white font-bold text-xl tracking-widest">
-        DIGITALART
-      </div>
+      <!-- Logo mit ID "logo-text" -->
+        <div id="logo-text" class="text-white font-bold text-xl tracking-widest transition-colors duration-500">
+          DIGITALART
+        </div>
 
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-8 text-white font-medium">
-        <a href="#about" class="hover:text-gray-300 transition">About</a>
-        <a href="#skills" class="hover:text-gray-300 transition">Skills</a>
-        <a href="#portfolio" class="hover:text-gray-300 transition">Portfolio</a>
-        <a href="#contact" class="hover:text-gray-300 transition">Kontakt</a>
+<nav class="hidden md:flex space-x-8 text-white font-medium items-center">
+  <a href="#about" class="text-white hover:text-gray-300 transition">About</a>
+  <a href="#skills" class="text-white hover:text-gray-300 transition">Skills</a>
+  <a href="#portfolio" class="text-white hover:text-gray-300 transition">Portfolio</a></a>
+  <a href="#contact" class="text-white hover:text-gray-300 transition">Kontakt</a>
+
+        <!-- Schalter mit fixen Farben -->
+<button id="theme-toggle" class="cursor-pointer hover:scale-110 transition transform select-none ml-4">
+  <!-- Mond (Immer Silber) -->
+  <svg id="icon-moon" class="w-6 h-6 text-slate-400" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+  </svg>
+  <!-- Sonne (Immer Gelb - standardmäßig versteckt) -->
+  <svg id="icon-sun" class="hidden w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path>
+  </svg>
+</button>
+
+
+
+
       </nav>
 
       <!-- Hamburger Icon Mobile -->
@@ -532,33 +549,6 @@
           </div>
         </div>
 
-        <!-- Projekt 2.5 
-<div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-  <div class="overflow-hidden">
-    <img 
-      src="/images/projekt2.jpg"
-      class="w-full h-52 object-cover group-hover:scale-110 transition duration-500"
-    >
-  </div>
-  <div class="p-6">
-    <h3 class="text-xl font-semibold mb-2">
-      3D Art Collection
-    </h3>
-    <p class="text-gray-400 text-sm mb-4">
-      Sammlung meiner 3D Designs und Renderings.
-    </p>
-    <div class="flex flex-wrap gap-2 mb-5">
-      <span class="text-xs bg-gray-800 px-2 py-1 rounded">Blender</span>
-      <span class="text-xs bg-gray-800 px-2 py-1 rounded">3D</span>
-      <span class="text-xs bg-gray-800 px-2 py-1 rounded">Rendering</span>
-    </div>
-    <div class="flex gap-3">
-      <a href="#" class="text-sm bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded">
-        Projekt
-      </a>
-    </div>
-  </div>
-</div> -->
 
         <!-- Projekt 2 -->
         <div class="group bg-gray-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition ">
@@ -746,6 +736,52 @@
     <!-- Bild -->
     <img id="lightbox-img" onclick="event.stopPropagation()" class="max-w-[90%] max-h-[90%] rounded-lg shadow-2xl">
   </div>
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const moonIcon = document.getElementById('icon-moon');
+  const sunIcon = document.getElementById('icon-sun');
+  const logoText = document.getElementById('logo-text'); 
+  const mainHeader = document.getElementById('main-header');
+  // Holt alle Links im Desktop-Menü
+  const navLinks = document.querySelectorAll('nav a');
+  
+  let isSunActive = false;
+
+  function updateIconOnly(sunVisible) {
+    if (sunVisible) {
+      moonIcon.classList.add('hidden');
+      sunIcon.classList.remove('hidden');
+    } else {
+      sunIcon.classList.add('hidden');
+      moonIcon.classList.remove('hidden');
+    }
+  }
+
+  function toggleMode() {
+    isSunActive = !isSunActive;
+    updateIconOnly(isSunActive);
+    
+    if (isSunActive) {
+      // HELLER MODUS (Sonne)
+      mainHeader.classList.replace('bg-black', 'bg-white');
+      logoText.classList.replace('text-white', 'text-zinc-800');
+      // Alle Links auf Grau umstellen
+      navLinks.forEach(link => link.classList.replace('text-white', 'text-zinc-800'));
+    } else {
+      // DUNKLER MODUS (Mond)
+      mainHeader.classList.replace('bg-white', 'bg-black');
+      logoText.classList.replace('text-zinc-800', 'text-white');
+      // Alle Links zurück auf Weiß
+      navLinks.forEach(link => link.classList.replace('text-zinc-800', 'text-white'));
+    }
+  }
+
+  themeToggle.addEventListener('click', toggleMode);
+  themeToggle.addEventListener('mouseenter', () => updateIconOnly(!isSunActive));
+  themeToggle.addEventListener('mouseleave', () => updateIconOnly(isSunActive));
+</script>
+
+
 
 </body>
 
